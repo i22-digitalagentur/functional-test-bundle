@@ -1,5 +1,5 @@
 {
-  "name": "i22-digitalagentur/functional-test-bundle",
+  "name": "i22/functional-test-bundle",
   "description": "symfony bundle for optimised functional testing with alice and doctrine bundle",
   "license": "proprietary",
   "type": "symfony-bundle",
