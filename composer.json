@@ -1,0 +1,39 @@
+{
+  "name": "i22/functional-test-bundle",
+  "description": "symfony bundle for optimised functional testing with alice and doctrine bundle",
+  "license": "proprietary",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "Dennis Langen",
+      "email": "dennis.langen@i22.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "I22\\FunctionalTestBundle\\": "src"
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "require": {
+    "php": ">=7.1.0",
+    "symfony/http-kernel": "^3.4||^4.0",
+    "symfony/config": "^3.4||^4.0",
+    "symfony/dependency-injection": "^3.4||^4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.2 || ^6.0",
+    "hautelook/alice-bundle": "^2.0",
+    "symfony/symfony": "^3.4 || ^4.0",
+    "symfony/phpunit-bridge": "^3.4 || ^4.0",
+    "doctrine/data-fixtures": "^1.3"
+  },
+  "minimum-stability": "stable",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}
