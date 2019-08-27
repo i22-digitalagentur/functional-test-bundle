@@ -15,7 +15,7 @@ trait UserAuthorizationTrait
     /**
      * @return Client
      */
-    abstract protected function getClient() : Client;
+    abstract protected function getWebTestClient(): Client;
 
     /**
      * @param UserInterface $user
@@ -23,15 +23,15 @@ trait UserAuthorizationTrait
      */
     public function login(UserInterface $user, $firewall = 'default')
     {
-        $session = $this->getClient()->getContainer()->get('session');
+        $session = $this->getWebTestClient()->getContainer()->get('session');
         $session->setId("test_session");
 
         $token = new UsernamePasswordToken($user, null, $firewall, $user->getRoles());
-        $this->getClient()->getContainer()->get('security.token_storage')->setToken($token);
+        $this->getWebTestClient()->getContainer()->get('security.token_storage')->setToken($token);
         $session->set('_security_'.$firewall, serialize($token));
         $session->save();
 
         $cookie = new Cookie($session->getName(), $session->getId());
-        $this->getClient()->getCookieJar()->set($cookie);
+        $this->getWebTestClient()->getCookieJar()->set($cookie);
     }
 }

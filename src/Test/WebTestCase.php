@@ -41,6 +41,22 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
     }
 
     /**
+     * @return Client
+     */
+    protected function getWebTestClient(): Client
+    {
+        return $this->client;
+    }
+
+    /**
+     * @return RegistryInterface
+     */
+    protected function getDoctrine(): RegistryInterface
+    {
+        return $this->doctrine;
+    }
+
+    /**
      * Fixtures in the fixtures folder within the test folder will be loaded automatically as long
      * as they are provided in .y(a)ml or php format.
      *
