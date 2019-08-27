@@ -13,10 +13,10 @@ use Symfony\Component\Finder\Finder as SymfonyFinder;
 class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
 {
     /** @var Client */
-    private $client;
+    protected $client;
 
     /** @var RegistryInterface */
-    private $doctrine;
+    protected $doctrine;
 
     /**
      * @throws \ReflectionException
@@ -38,22 +38,6 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
         $this->doctrine->getManager()->clear();
         unset($this->client, $this->doctrine, $this->objects);
         parent::tearDown();
-    }
-
-    /**
-     * @return Client
-     */
-    protected function getClient() : Client
-    {
-        return $this->client;
-    }
-
-    /**
-     * @return RegistryInterface
-     */
-    protected function getDoctrine() : RegistryInterface
-    {
-        return $this->doctrine;
     }
 
     /**
