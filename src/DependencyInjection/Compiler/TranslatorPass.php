@@ -25,9 +25,10 @@ class TranslatorPass implements CompilerPassInterface
         $enable = $container->getParameter('i22_functional_test.use_fake_translator');
 
         if ($enable && $container->hasDefinition('translator.default')) {
-            $container->removeDefinition('translator.default');
 
-            $definition = new Definition(FakeTranslator::class);
+            $definition = $container->getDefinition('translator.default');
+            $definition = new Definition(FakeTranslator::class, $definition->getArguments());
+            $container->removeDefinition('translator.default');
             $container->setDefinition('translator.default', $definition);
         }
 
