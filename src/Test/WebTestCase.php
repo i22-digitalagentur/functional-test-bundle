@@ -3,7 +3,7 @@
 namespace I22\FunctionalTestBundle\Test;
 
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\Finder\Finder as SymfonyFinder;
 
@@ -15,7 +15,7 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
     /** @var Client */
     protected $client;
 
-    /** @var RegistryInterface */
+    /** @var ManagerRegistry */
     protected $doctrine;
 
     /**
@@ -49,9 +49,9 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
     }
 
     /**
-     * @return RegistryInterface
+     * @return ManagerRegistry
      */
-    protected function getDoctrine(): RegistryInterface
+    protected function getDoctrine(): ManagerRegistry
     {
         return $this->doctrine;
     }
