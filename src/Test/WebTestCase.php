@@ -3,7 +3,7 @@
 namespace I22\FunctionalTestBundle\Test;
 
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
-use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\Finder\Finder as SymfonyFinder;
 
