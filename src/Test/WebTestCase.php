@@ -21,7 +21,7 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
     /**
      * @throws \ReflectionException
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->client = static::createClient();
         $this->doctrine = $this->client->getContainer()->get('doctrine');
@@ -32,7 +32,7 @@ class WebTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
     }
 
     /**  */
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->resetDatabase();
         $this->doctrine->getManager()->clear();
